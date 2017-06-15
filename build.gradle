@@ -55,6 +55,18 @@ checkstyle {
 
 tasks.withType(Checkstyle) {
   reports {
-    html.destination rootProject.file("build/reports/checkstyle.html")
+    xml.enabled = false
+    html.enabled = true
   }
+}
+
+tasks.withType(FindBugs) {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+  }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
 }
